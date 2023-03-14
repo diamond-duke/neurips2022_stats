@@ -3,7 +3,7 @@
 ### All submissions
 
 - Ratings distribution
-![](assets/stats_bar.png)
+![](assets/stats_bar_2022.png)
 
 ## Acknowledgement 
 
