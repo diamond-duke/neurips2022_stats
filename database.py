@@ -3,9 +3,8 @@
 
 import os
 import json
-import operator
-from tqdm import tqdm
 import sqlite3
+import numpy as np
 
 
 class DataBase:
@@ -15,9 +14,13 @@ class DataBase:
         self.cursor = None
 
 
-    def initialize(self, create: bool = False):
+    def initialize(self, create: bool = False, drop: bool = False):
         self.database = sqlite3.connect(self.db_path, check_same_thread=False)
         self.cursor = self.database.cursor()
+
+        if drop:
+            _cmd = f"DROP TABLE submissions"
+            self.cursor.execute(_cmd)
 
         if create:
             _cmd = f"CREATE TABLE submissions " \
